@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // The Worker's name. When you create the Worker in Cloudflare, use exactly this name.
+  "name": "yenetwork",
+  "main": "worker/index.js",
+  "compatibility_date": "2025-09-01",
+
+  // The website files live in /docs. The Worker only runs for /api/* (and blocks the preview-only file).
+  "assets": {
+    "directory": "./docs",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/data-preview.js"],
+    "not_found_handling": "404-page"
+  },
+
+  // One small database (SQLite) for access keys, applications and schedules.
+  "durable_objects": { "bindings": [{ "name": "STORE", "class_name": "YenStore" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["YenStore"] }],
+
+  // Which Claude model powers the FinWise AI coach. Change it here any time.
+  "vars": { "FINWISE_MODEL": "claude-sonnet-5-5" },
+
+  "observability": { "enabled": true }
+}

@@ -1,0 +1,4 @@
+# Copy this file to .dev.vars to test locally with `npm run dev`. Never upload .dev.vars.
+ADMIN_SECRET=choose-a-long-admin-password
+SESSION_SECRET=paste-a-long-random-string-here
+# ANTHROPIC_API_KEY=sk-ant-...   (only needed to test the FinWise AI coach)

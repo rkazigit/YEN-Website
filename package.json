@@ -1,0 +1,16 @@
+{
+  "name": "yenetwork",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Youth Entrepreneurship Network website and member system (Cloudflare Worker + static site)",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "preview-data": "node scripts/make-preview.mjs",
+    "test": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
